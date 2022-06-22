@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+  php:
+    container_name: php
+    build:
+      context: ./php
+      dockerfile: Dockerfile
+    volumes:
+      - ./php/src/:/var/www/html/
+    ports:
+      - 8081:80
+    environment:
+      - DB_HOST=db
+      - DB_DATABASE=shortner
+      - DB_USERNAME=root
+      - DB_PASSWORD=123.456.abc
+      - DB_PORT=3306
+
+  db:
+    container_name: db
+    build:
+      context: ./mysql
+      dockerfile: Dockerfile
+    ports:
+      - "9906:3306"
+    environment:
+      - MYSQL_DATABASE=shortner
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=123.456.abc
+      - MYSQL_ROOT_PASSWORD=123.456.abc
