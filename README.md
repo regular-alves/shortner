@@ -1,0 +1,2 @@
+# shortner
+Simple PHP shortner
