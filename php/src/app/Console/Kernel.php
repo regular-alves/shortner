@@ -12,7 +12,7 @@ class Kernel extends ConsoleKernel
      *
      * @var array
      */
-    protected $commands = [ 'urls:title' ];
+    protected $commands = [];
 
     /**
      * Define the application's command schedule.
@@ -22,7 +22,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('urls:title')->everyMinute();
+        $schedule->command( CrawlTitle::class )->everyMinute();
     }
 
     /**

@@ -1,1 +1,1 @@
-create database shortner;
+create database if not exists shortner;
